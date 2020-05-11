@@ -51,19 +51,32 @@
 // // 作成した関数を呼び出す
 // alert(alertString);
 
+
 // var promptStr = prompt('何か好きな文字を入力してください')
 
 // alert(promptStr);
 
-var user_hand = prompt('じゃんけんの手をグー、チョキ、パーから選んでください');
 
+
+// 6-3章ここから課題
+var user_hand = prompt('じゃんけんの手をグー、チョキ、パーから選んでください');
+// alert(user_hand);
 var js_hand = getJShand();
 
 var judge = winLose(user_hand, js_hand);
 
-alert('あなたの選んだ手は' + user_hand + 'です。\nJavaScriptの選んだ手は'+ js_hand + 'です。\n結果は' + judge + 'です。');
+if(user_hand == "グー" || user_hand =="チョキ" || user_hand =="パー"){
+	var judge = winLose(user_hand, js_hand);
+	
+	alert('あなたの選んだ手は' + user_hand + 'です。\nJavaScriptの選んだ手は'+ js_hand + 'です。\n結果は' + judge + 'です。');
 
+}else if(user_hand == null){
+	alert('またチャレンジしてね');
 
+}else{
+	alert('グー・チョキ・パーのいずれかを入力して下さい');
+	user_hand = prompt('じゃんけんの手をグー、チョキ、パーから選んでください。');
+}
 
 function getJShand(){
 	var js_hand_num = Math.floor( Math.random()*3);
@@ -109,3 +122,6 @@ function winLose(user, js){
 
     return winLoseStr;
 }
+
+
+
